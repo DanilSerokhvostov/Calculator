@@ -8,6 +8,7 @@ public class NumberProcessing extends Thread {
     private static final HashMap<String,Integer > RomanAndArabic = new HashMap<>();
     private static String row;
 
+
     public static String getRow() {
         return row;
     }
@@ -81,34 +82,47 @@ public class NumberProcessing extends Thread {
     public static String toRomanNumber(int number){
         StringBuffer resault = new StringBuffer("");
 
-        int a1 = number / 100;
-        for (int i = 0; i < a1; i++){
+        while (number >= 100) {
             resault.append("C");
-            number = number % 100;
+            number -= 100;
         }
-        int a2 = number / 50;
-        for (int i = 0; i < a2; i++){
+        while (number >= 90) {
+            resault.append("XC");
+            number -= 90;
+        }
+        while (number >= 50) {
             resault.append("L");
-            number = number % 50;
+            number -= 50;
         }
-        int a3 = number / 10;
-        for (int i = 0; i < a3; i++){
+        while (number >= 40) {
+            resault.append("XL");
+            number -= 40;
+        }
+        while (number >= 10) {
             resault.append("X");
-            number = number % 10;
+            number -= 10;
         }
-        int a4 = number / 5;
-        for (int i = 0; i < a4; i++){
+        while (number >= 9) {
+            resault.append("IX");
+            number -= 9;
+        }
+        while (number >= 5) {
             resault.append("V");
-            number = number % 5;
+            number -= 5;
         }
-
-        int a5 = number / 1;
-        for (int i = 0; i < a5; i++){
+        while (number >= 4) {
+            resault.append("IV");
+            number -= 4;
+        }
+        while (number >= 1) {
             resault.append("I");
+            number -= 1;
         }
 
         setRow(String.valueOf(resault));
         return getRow();
     }
+
+
 
 }
