@@ -17,8 +17,7 @@ public class ActionCalculator{
             Double firstDouble = (double) firstNumber.getNumber();
             Double secondDouble = (double) secondNumber.getNumber();
             if (firstDouble % secondDouble != 0) {
-                System.out.println("Неверная операция, ответ является дробным числом");
-                System.exit(1);
+                resault = (int) Math.floor(firstDouble / secondDouble);
             } else {
                 resault = firstNumber.getNumber() / secondNumber.getNumber();
             }
