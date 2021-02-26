@@ -16,6 +16,14 @@ public class ActionCalculator{
         } else if (action.equals("/") || action.equals("\\")) {
             Double firstDouble = (double) firstNumber.getNumber();
             Double secondDouble = (double) secondNumber.getNumber();
+
+            if (firstDouble == 0){
+                resault = 0;
+            } else if (secondDouble == 0){
+                System.out.println("Неверная операция, деление на ноль");
+                System.exit(1);
+            }
+
             if (firstDouble % secondDouble != 0) {
                 resault = (int) Math.floor(firstDouble / secondDouble);
             } else {
